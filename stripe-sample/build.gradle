@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'org.slf4j:slf4j-simple:1.7.32'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    implementation "com.stripe:stripe-java:20.86.1"
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.sparkjava:spark-core:2.9.3'
+
+
+}

@@ -1,0 +1,146 @@
+
+.cart-text {
+  font-size:16px;
+  cursor:pointer;
+  display:inline-block;
+}
+
+.cart-number {
+  min-width:17px;
+  min-height:17px;
+  padding:0 3px;
+  line-height:17px;
+  background:#f00;
+  color:#fff;
+  border-radius:50%;
+  display:inline-block;
+  vertical-align:top;
+  text-align:center;
+  font-size:12px;
+  position:absolute;
+  top:0;
+  right:0;
+  margin-right: -10px;
+  margin-top: -5px;
+}
+
+.cart-box {
+  position:relative;
+}
+
+.cart-items-wrap {
+  position:absolute;
+  top:100%;
+  right:0;
+  background:#fff;
+  z-index:999;
+  border:1px solid #ddd;
+  display:none;
+}
+
+.no-product {
+  padding:10px;
+  color:#aaa;
+  text-align:center;
+}
+
+.cart-items-wrap .pro-img img {
+  height:auto;
+}
+.cart-items-wrap .pro-img {
+  float:left;
+  text-align:center;
+  border:1px solid #eee;
+  padding:5px;
+}
+
+.cart-items-wrap .pro-item-inner {
+  padding:15px;
+  border:0;
+  border-bottom:1px dotted #ccc;
+  color:#000;
+}
+
+.cart-items-wrap .pro-item-inner:after {
+  display:block;
+  clear:both;
+  content:'';
+}
+
+.cart-items-wrap .pro-btn {
+  position:relative;
+  text-align:left;
+  margin-left:90px;
+}
+.cart-items-wrap .pro-btn span {
+  display:none;
+}
+.cart-items-wrap .pro-btn:before {
+  content:'Remove';
+  display:block;
+  color:#f50;
+  font-size:13px;
+  cursor:pointer;
+}
+
+.cart-items-wrap .pro-name {
+  font-size:13px;
+  margin:0 0 0 90px;
+  text-align:left;
+}
+
+.cart-items-wrap .pro-price {
+  text-align:left;
+  margin:5px 0 0 90px;
+}
+
+.cart-close {
+  width:20px;
+  height:20px;
+  position:absolute;
+  left:0;
+  top:18px;
+  background:#000;
+  color:#fff;
+  font-size:12px;
+  line-height:20px;
+  z-index:99;
+  text-align:center;
+  font-weight:700;
+  cursor:pointer;
+  display:none;
+}
+
+.cart-close:hover {
+  background:#f50;
+}
+
+.pro-btn.disabled span {
+  background:#aaa;
+  pointer-events:none;
+  cursor:default;
+  color:#ddd;
+}
+
+.cart-total {
+  display:none;
+  color: #000;
+  padding: 10px;
+}
+
+.checkout-btn {
+  margin-top:10px;
+}
+
+.checkout-btn a {
+  display:block;
+  padding:5px 10px;
+  background:#16b916;
+  color:#fff;
+  text-decoration:none;
+  text-align:center;
+}
+
+.checkout-btn a:hover {
+  background:green;
+}

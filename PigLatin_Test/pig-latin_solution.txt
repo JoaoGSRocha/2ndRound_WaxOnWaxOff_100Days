@@ -1,0 +1,40 @@
+	// This LatinPig Exercises is kinda asking for a Builder Pattern to made
+	// Just saying...
+	let consonant1st = false;
+	let hasVowels =  function(str){
+		for(let i = 0; i<str.length; i++){
+			if (str.charAt(i) === 'a'
+					|| str.charAt(i) === 'e'
+					|| str.charAt(i) === 'i'
+					|| str.charAt(i) === 'o'
+					|| str.charAt(i) === 'u') {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	function translatePigLatin(str) {
+    consonant1st = false;
+		if(hasVowels(str))
+			while (str.charAt(0) !== 'a'
+			&& str.charAt(0) !== 'e'
+			&& str.charAt(0) !== 'i'
+			&& str.charAt(0) !== 'o'
+			&& str.charAt(0) !== 'u') {
+				consonant1st = true;
+				let strArr = str.split("");
+				let newStr = str.slice(1);
+				newStr = newStr.concat(strArr[0]);
+				str = newStr;
+			}
+
+		if(!consonant1st && hasVowels(str))
+			str = str.concat("way");
+		else
+			str = str.concat("ay");
+
+		return str;
+	}
+
+translatePigLatin("consonant");

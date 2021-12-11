@@ -1,0 +1,200 @@
+<div class="container-fluid dashboard-content ">
+  <!-- ============================================================== -->
+  <!-- pageheader  -->
+  <!-- ============================================================== -->
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="page-header">
+        <h2 class="pageheader-title">Concept - Bootstrap 4 Admin Dashboard Template </h2>
+        <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis
+          faucibus at enim quis massa lobortis rutrum.</p>
+        <div class="page-breadcrumb">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">E-commerce</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Concept - Bootstrap 4 Admin Dashboard Template</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- end pageheader  -->
+  <!-- ============================================================== -->
+  <div class="row">
+    <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12 col-12">
+      <div class="row">
+        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12"
+             *ngFor="let product of skins">
+          <div class="product-thumbnail">
+            <div class="product-img-head">
+              <div class="product-img">
+                <img src="{{product.imgUrl}}" alt="" class="img-fluid"></div>
+              <div class="ribbons"></div>
+              <div class="ribbons-text">New</div>
+              <div class=""><a href="#" class="product-wishlist-btn"><i class="fas fa-heart"></i></a></div>
+            </div>
+            <div class="product-content">
+              <div class="product-content-head">
+                <h3 class="product-title">{{product.name}}</h3>
+                <div class="product-rating d-inline-block">
+                  <i class="fa fa-fw fa-star"></i>
+                  <i class="fa fa-fw fa-star"></i>
+                  <i class="fa fa-fw fa-star"></i>
+                  <i class="fa fa-fw fa-star"></i>
+                  <i class="fa fa-fw fa-star"></i>
+                </div>
+                <div class="product-price">${{product.price}}</div>
+              </div>
+              <div class="product-btn">
+                <div (click)=" addToCart(product)" class="btn btn-primary">Add to Cart</div>
+                <a href="#" class="btn btn-outline-light">Details</a>
+                <a href="#" class="btn btn-outline-light"><i class="fas fa-exchange-alt"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12">
+      <jw-modal id="custom-modal-2">
+        <button style="float: right;" (click)="closeModal('custom-modal-2');">Close</button>
+        <h1 style="height:600px; top: 450px;">A mockup buy Button</h1>
+      </jw-modal>
+      <div class="product-sidebar">
+        <div class="product-sidebar-widget">
+          <h4 class="mb-0">E-Commerce Filter</h4>
+        </div>
+        <div class="col">
+          <div class="tabs">
+            <div class="tab">
+              <input type="checkbox" id="chck1">
+              <label class="tab-label" for="chck1">Shopping cart</label>
+              <div class="tab-content">
+                <div *ngFor="let item of a">
+                  <div class="cart-content__item-card">
+                    <img class="item-card__product-image" src="{{item.imgUrl}}" alt=""/>
+                    <div class="item-card__data-product">
+                      <span class="data-product__title">{{item.name}}</span>
+                      <div class="data-product__price-row">
+                        <span class="price-row__count">{{item.count}}</span>
+                        <span class="price-row__product-price">{{item.price}} $</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cart-content__item-card">
+                  <span class="data-product__title">Total</span>
+                </div>
+                <button class="cart-content__buy-button" (click)="openModal('custom-modal-2')">buy now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form [formGroup]="rarityFB">
+
+          <div class="product-sidebar-widget">
+            <h4 class="product-sidebar-widget-title">Category</h4>
+            <div class="custom-control custom-checkbox" *ngFor="let tempExpansion of expansions"
+                 (click)="currentExpansionId = tempExpansion.id; listExpansions()">
+              {{tempExpansion.expansionCode}}
+            </div>
+          </div>
+          <div class="product-sidebar-widget">
+            <div (click)="resetExpansion();" class="btn btn-outline-light">Restore Defaults</div>
+          </div>
+          <fieldset id="group1">
+            <div class="product-sidebar-widget">
+              <h4 class="product-sidebar-widget-title">Rarity</h4>
+              <div class="custom-control custom-radio custom-color-blue ">
+                <input type="radio" id="rare-1" formControlName="rarity" value="Common" name="rarity"
+                       class="custom-control-input">
+                <label class="custom-control-label" (click)="rarity = 'Common'; listProducts()"
+                       for="rare-1">Common</label>
+              </div>
+              <div class="custom-control custom-radio custom-color-red ">
+                <input type="radio" id="rare-2" formControlName="rarity" value="Uncommon" name="rarity"
+                       class="custom-control-input">
+                <label class="custom-control-label" (click)="rarity = 'Uncommon'; listProducts()"
+                       for="rare-2">Uncommon</label>
+              </div>
+              <div class="custom-control custom-radio custom-color-yellow ">
+                <input type="radio" id="rare-3" formControlName="rarity" value="Rare" name="rarity"
+                       class="custom-control-input">
+                <label class="custom-control-label" (click)="rarity = 'Rare'; listProducts()"
+                       for="rare-3">Rare</label>
+              </div>
+              <div class="custom-control custom-radio custom-color-black ">
+                <input type="radio" id="rare-4" formControlName="rarity" value="Mythical" name="rarity"
+                       class="custom-control-input">
+                <label class="custom-control-label" (click)="rarity = 'Mythical'; listProducts()"
+                       for="rare-4">Mythical</label>
+              </div>
+              <div class="custom-control custom-radio custom-color-black ">
+                <input type="radio" id="rare-5" formControlName="rarity" value="Ancient" name="rarity"
+                       class="custom-control-input">
+                <label class="custom-control-label" (click)="rarity = 'Ancient'; listProducts()"
+                       for="rare-5">Ancient</label>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        <div (click)="resetRarity();" class="product-sidebar-widget">
+          <div (click)="resetRarity();" class="btn btn-outline-light">Restore Defaults</div>
+        </div>
+        <form [formGroup]="conditionFB">
+          <fieldset id="group2">
+            <div class="product-sidebar-widget">
+              <h4 class="product-sidebar-widget-title">Condition</h4>
+              <div class="custom-control custom-radio custom-color-blue ">
+                <input type="radio" formControlName="condition" value="Battle Scarred" id="condition-1" name="condition"
+                       class="custom-control-input">
+                <label class="custom-control-label" (click)="condition = 'Battle Scarred'; listProducts()"
+                       for="condition-1">Battle Scarred</label>
+              </div>
+              <div class="custom-control custom-radio custom-color-red ">
+                <input type="radio" formControlName="condition" value="Well-Worn" id="condition-2" name="condition"
+                       class="custom-control-input">
+                <label class="custom-control-label" (click)="condition = 'Well-Worn'; listProducts()"
+                       for="condition-2">Well-Worn</label>
+              </div>
+              <div class="custom-control custom-radio custom-color-yellow ">
+                <input type="radio" formControlName="condition" value="Field-Tested" id="condition-3" name="condition"
+                       class="custom-control-input">
+                <label class="custom-control-label" (click)="condition = 'Field-Tested'; listProducts()"
+                       for="condition-3">Field-Tested</label>
+              </div>
+              <div class="custom-control custom-radio custom-color-black ">
+                <input type="radio" formControlName="condition" value="Minimal Wear" id="condition-4" name="condition"
+                       class="custom-control-input">
+                <label class="custom-control-label" (click)="condition = 'Minimal Wear'; listProducts()"
+                       for="condition-4">Minimal Wear</label>
+              </div>
+              <div class="custom-control custom-radio custom-color-black ">
+                <input type="radio" formControlName="condition" value="Factory New" id="condition-5" name="condition"
+                       class="custom-control-input">
+                <label class="custom-control-label" (click)="condition = 'Factory New'; listProducts()"
+                       for="condition-5">Factory New</label>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        <div (click)="resetCondition();" class="product-sidebar-widget">
+          <div (click)="resetCondition()" class="btn btn-outline-light">Restore Defaults</div>
+        </div>
+        <div class="product-sidebar-widget">
+          <ngx-slider [(value)]="minStock" [(highValue)]="maxStock" [options]="stockOptions"
+                      (mouseup)="listProducts()"></ngx-slider>
+        </div>
+        <div class="product-sidebar-widget">
+          <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="priceOptions"
+                      (mouseup)="listProducts()"></ngx-slider>
+        </div>
+        <div (click)=" resetForm()" class="product-sidebar-widget">
+          <div (click)=" resetForm()" class="btn btn-outline-light">Reset Filter</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

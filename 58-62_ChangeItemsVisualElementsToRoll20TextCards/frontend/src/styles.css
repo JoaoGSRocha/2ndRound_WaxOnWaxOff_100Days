@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/vendor/bootstrap/css/bootstrap.min.css";
+@import "assets/vendor/fonts/circular-std/style.css";
+@import "assets/libs/css/style.css";
+@import "assets/vendor/fonts/fontawesome/css/fontawesome-all.css";
+@import "assets/vendor/fonts/fontawesome/css/fontawesome-all.css";
+@import "assets/libs/css/cart.css";
+@import "assets/libs/css/cart_details.css";
+@import "assets/libs/css/cart_items.css";
+@import "assets/libs/css/accordion.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Add application styles & imports to this file! */
+
+
+.noUi-tooltip{
+  background-color: orange;
+  color: white;
+  padding: 10px 10px;
+  border-radius: 0;
+}
+
+.noUi-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: orange transparent transparent transparent;
+}
+
+div:focus{
+  outline: none;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
